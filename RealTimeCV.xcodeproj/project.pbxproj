@@ -15,6 +15,8 @@
 		30037EA627C736DD00E453CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30037EA427C736DD00E453CE /* LaunchScreen.storyboard */; };
 		30037EB127C736E000E453CE /* RealTimeCVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30037EB027C736E000E453CE /* RealTimeCVTests.swift */; };
 		30037EBC27C736E100E453CE /* RealTimeCVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30037EBB27C736E100E453CE /* RealTimeCVUITests.swift */; };
+		30037ED327C76C3900E453CE /* ModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30037ED227C76C3900E453CE /* ModelViewController.swift */; };
+		30037ED827C76E1400E453CE /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 30037ED727C76E1400E453CE /* MobileNet.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		30037EB727C736E100E453CE /* RealTimeCVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealTimeCVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30037EBB27C736E100E453CE /* RealTimeCVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeCVUITests.swift; sourceTree = "<group>"; };
 		30037EBD27C736E100E453CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30037ED227C76C3900E453CE /* ModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewController.swift; sourceTree = "<group>"; };
+		30037ED727C76E1400E453CE /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +106,12 @@
 				30037E9927C736B100E453CE /* AppDelegate.swift */,
 				30037E9B27C736B100E453CE /* SceneDelegate.swift */,
 				30037E9D27C736B100E453CE /* ViewController.swift */,
+				30037ED227C76C3900E453CE /* ModelViewController.swift */,
 				30037E9F27C736B100E453CE /* Main.storyboard */,
 				30037EA227C736DC00E453CE /* Assets.xcassets */,
 				30037EA427C736DD00E453CE /* LaunchScreen.storyboard */,
 				30037EA727C736DD00E453CE /* Info.plist */,
+				30037ED727C76E1400E453CE /* MobileNet.mlmodel */,
 			);
 			path = RealTimeCV;
 			sourceTree = "<group>";
@@ -258,6 +264,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30037ED327C76C3900E453CE /* ModelViewController.swift in Sources */,
+				30037ED827C76E1400E453CE /* MobileNet.mlmodel in Sources */,
 				30037E9E27C736B100E453CE /* ViewController.swift in Sources */,
 				30037E9A27C736B100E453CE /* AppDelegate.swift in Sources */,
 				30037E9C27C736B100E453CE /* SceneDelegate.swift in Sources */,
