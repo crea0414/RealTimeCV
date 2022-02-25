@@ -12,7 +12,6 @@ import Vision
 class ModelViewController: ViewController {
 
     
-    @IBOutlet weak var MainPreview: UIView!
     @IBOutlet weak var classLabel: UILabel!
     @IBOutlet weak var confidenceLabel: UILabel!
     @IBOutlet weak var DeviceOrientationLabel: UILabel!

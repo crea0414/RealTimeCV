@@ -17,8 +17,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAG-Uw-Aqr">
+                                <rect key="frame" x="180" y="447.66666666666669" width="68" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="START"/>
+                                <connections>
+                                    <segue destination="lb8-Xz-BXy" kind="presentation" identifier="goToFullScreen" id="80H-Wa-Z0U"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkT-AL-VOa">
-                                <rect key="frame" x="153" y="447.66666666666669" width="122" height="31"/>
+                                <rect key="frame" x="153" y="528.66666666666663" width="122" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Engineer Mode"/>
                                 <connections>
@@ -33,7 +41,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="LkT-AL-VOa" firstAttribute="centerX" secondItem="4ce-to-16C" secondAttribute="centerX" id="AbP-ui-NZ4"/>
-                            <constraint firstItem="LkT-AL-VOa" firstAttribute="centerY" secondItem="4ce-to-16C" secondAttribute="centerY" id="Eqs-Ez-Uaz"/>
+                            <constraint firstItem="KAG-Uw-Aqr" firstAttribute="centerY" secondItem="4ce-to-16C" secondAttribute="centerY" id="Ecu-wM-X3G"/>
+                            <constraint firstItem="KAG-Uw-Aqr" firstAttribute="centerX" secondItem="4ce-to-16C" secondAttribute="centerX" id="d79-YS-dNZ"/>
+                            <constraint firstItem="LkT-AL-VOa" firstAttribute="top" secondItem="KAG-Uw-Aqr" secondAttribute="bottom" constant="50" id="sNs-PY-W7X"/>
                         </constraints>
                     </view>
                     <connections>
@@ -42,7 +52,62 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u7v-cL-r9F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-519" y="136"/>
+            <point key="canvasLocation" x="-922" y="-201"/>
+        </scene>
+        <!--Full Screen View Controller-->
+        <scene sceneID="n35-cz-xLU">
+            <objects>
+                <viewController id="lb8-Xz-BXy" customClass="FullScreenViewController" customModule="RealTimeCV" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YT8-vQ-Lv4">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ke-wg-mM0" userLabel="FullScreenView">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <stackView alpha="0.69999999999999996" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nwX-2E-jgW" userLabel="DetectionResult">
+                                <rect key="frame" x="114" y="40" width="200" height="48.666666666666657"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XL9-Tx-sqa">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confidence" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwZ-q7-GZi">
+                                        <rect key="frame" x="0.0" y="28.333333333333329" width="200" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="pCZ-Da-MpG"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="j7N-T8-TmH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5ke-wg-mM0" firstAttribute="top" secondItem="YT8-vQ-Lv4" secondAttribute="top" id="5VK-AD-rXM"/>
+                            <constraint firstAttribute="trailing" secondItem="5ke-wg-mM0" secondAttribute="trailing" id="80L-9I-sSY"/>
+                            <constraint firstAttribute="bottom" secondItem="5ke-wg-mM0" secondAttribute="bottom" id="g83-NB-Bi6"/>
+                            <constraint firstItem="nwX-2E-jgW" firstAttribute="centerX" secondItem="YT8-vQ-Lv4" secondAttribute="centerX" id="gqD-3R-yf0"/>
+                            <constraint firstItem="5ke-wg-mM0" firstAttribute="leading" secondItem="YT8-vQ-Lv4" secondAttribute="leading" id="hUQ-n5-5Ct"/>
+                            <constraint firstItem="nwX-2E-jgW" firstAttribute="top" secondItem="j7N-T8-TmH" secondAttribute="top" constant="40" id="rSH-qW-xUQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="classLabel" destination="XL9-Tx-sqa" id="d1O-uQ-UEr"/>
+                        <outlet property="confidenceLabel" destination="VwZ-q7-GZi" id="DNg-47-dpb"/>
+                        <outlet property="previewView" destination="5ke-wg-mM0" id="ud3-Ya-nCU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CPL-ts-bgL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="113.55140186915887" y="-552.05183585313182"/>
         </scene>
         <!--Model View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -177,7 +242,6 @@
                         <outlet property="AVCaptureOrientation" destination="RP2-Um-RjJ" id="GPh-MG-INr"/>
                         <outlet property="DeviceOrientationLabel" destination="lLT-NK-Qa9" id="Ohc-FA-Ys1"/>
                         <outlet property="ImageOrientationLabel" destination="P02-vN-0fh" id="cgW-hc-vMw"/>
-                        <outlet property="MainPreview" destination="Tzg-oP-D0w" id="kmH-dQ-lLX"/>
                         <outlet property="calibratedOrientationLable" destination="YN4-8P-sCJ" id="jOi-VB-cfd"/>
                         <outlet property="classLabel" destination="GSa-We-k24" id="c2W-7h-ONL"/>
                         <outlet property="confidenceLabel" destination="tZY-8e-wkk" id="VtU-zI-ShU"/>

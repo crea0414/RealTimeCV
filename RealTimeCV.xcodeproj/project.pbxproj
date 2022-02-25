@@ -18,6 +18,7 @@
 		30037ED327C76C3900E453CE /* ModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30037ED227C76C3900E453CE /* ModelViewController.swift */; };
 		30037ED827C76E1400E453CE /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 30037ED727C76E1400E453CE /* MobileNet.mlmodel */; };
 		AD0EE08327C8D9FC00437B32 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0EE08227C8D9FC00437B32 /* StartViewController.swift */; };
+		AD0EE08527C937E800437B32 /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0EE08427C937E800437B32 /* FullScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		30037ED227C76C3900E453CE /* ModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewController.swift; sourceTree = "<group>"; };
 		30037ED727C76E1400E453CE /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 		AD0EE08227C8D9FC00437B32 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		AD0EE08427C937E800437B32 /* FullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				30037E9D27C736B100E453CE /* ViewController.swift */,
 				AD0EE08227C8D9FC00437B32 /* StartViewController.swift */,
 				30037ED227C76C3900E453CE /* ModelViewController.swift */,
+				AD0EE08427C937E800437B32 /* FullScreenViewController.swift */,
 				30037E9F27C736B100E453CE /* Main.storyboard */,
 				30037EA227C736DC00E453CE /* Assets.xcassets */,
 				30037EA427C736DD00E453CE /* LaunchScreen.storyboard */,
@@ -272,6 +275,7 @@
 				30037ED827C76E1400E453CE /* MobileNet.mlmodel in Sources */,
 				30037E9E27C736B100E453CE /* ViewController.swift in Sources */,
 				30037E9A27C736B100E453CE /* AppDelegate.swift in Sources */,
+				AD0EE08527C937E800437B32 /* FullScreenViewController.swift in Sources */,
 				30037E9C27C736B100E453CE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
