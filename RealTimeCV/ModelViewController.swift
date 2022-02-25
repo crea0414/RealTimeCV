@@ -12,6 +12,7 @@ import Vision
 class ModelViewController: ViewController {
 
     
+    @IBOutlet weak var MainPreview: UIView!
     @IBOutlet weak var classLabel: UILabel!
     @IBOutlet weak var confidenceLabel: UILabel!
     @IBOutlet weak var DeviceOrientationLabel: UILabel!
@@ -21,6 +22,7 @@ class ModelViewController: ViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var uiImageOrientationLabel: UILabel!
     @IBOutlet weak var imageView2: UIImageView!
+    @IBOutlet weak var calibratedOrientationLable: UILabel!
     //    @IBOutlet weak var classLabel: UILabel!
 //    @IBOutlet weak var confidenceLabel: UILabel!
 //    @IBOutlet weak var DeviceOrientationLabel: UILabel!
@@ -31,7 +33,7 @@ class ModelViewController: ViewController {
         super.viewDidLoad()
         setupModel()
         startCaptureSession()
-
+        print("check suported orientation: \(self.supportedInterfaceOrientations)")
     }
 
     func setupModel(){
@@ -63,24 +65,23 @@ class ModelViewController: ViewController {
         
         let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
         let uiImage = UIImage(ciImage: ciImage)
+        // rotate image by ciimage rotate function
 //        let uiImage2 = UIImage(ciImage: ciImage.oriented(CGImagePropertyOrientation(getUiImageOrientationByUIDevice())))
 
         let context = CIContext(options: nil)
         guard let cgImage = context.createCGImage(ciImage, from: ciImage.extent) else {
             fatalError("Create cgImage fail")
         }
+        // rotate cgImage in uiimage initializaer
         let uiImage2 = UIImage(cgImage: cgImage, scale: 1.0, orientation: getUiImageOrientationByUIDevice())
 //        let uiImage2 = UIImage(cgImage: cgImage)
+        
         // setup orientation
         let exifOrientation = exifOrientationFromDeviceOrientation2()
         let exifString = exifOrientationToString(orientation: exifOrientation)
         let deviceOrientationString = deviceOrientationToString(orientation: UIDevice.current.orientation)
         let avOrientation = avOrientationString(orientation: self.connection.videoOrientation)
         let uiImageOrientationString = uiImageOrientationToString(orientation: uiImage.imageOrientation)
-//        let avOrientation: String = avOrientationString(orientation: AVCaptureVideoOrientation(rawValue: (self.videoDataOutput.connection(with: .video)?.videoOrientation)!.rawValue) ?? AVCaptureVideoOrientation.portrait)
-//        let cgImageOrientation = cgImage.
-//        print("DeviceOrientatin: \(deviceOrientationString) ExifOrientation: \(exifString)")
-        
         
         DispatchQueue.main.sync {
             if let statusBarOrientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation{
@@ -92,9 +93,11 @@ class ModelViewController: ViewController {
             self.AVCaptureOrientation.text = String("AV: \(avOrientation)")
             self.DeviceOrientationLabel.text = String("Device: \(deviceOrientationString)")
             self.ImageOrientationLabel.text = String("Exif: \(exifString)")
-            self.uiImageOrientationLabel.text = String("LEFT:\(uiImageOrientationString) RIGHT:\(uiImageOrientationToString(orientation: getUiImageOrientationByUIDevice()))")
+            self.uiImageOrientationLabel.text = String("CameraFixed: \(uiImageOrientationString)")
+            self.calibratedOrientationLable.text = String("Calibrated: \(uiImageOrientationToString(orientation: getUiImageOrientationByUIDevice()))")
             self.imageView.image = uiImage
             self.imageView2.image = uiImage2
+//            print(String("\("?")"))
         }
         // 3). new a vision image request handler
         let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: exifOrientation, options: [:])
