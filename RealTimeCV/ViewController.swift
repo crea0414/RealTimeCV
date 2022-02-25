@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAVCpature()
-        startCaptureSession()
+//        startCaptureSession()
     }
 
 
@@ -88,7 +88,7 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate{
             
         }
         connection.isEnabled = true
-//        connection?.videoOrientation = .portrait
+//        connection.videoOrientation = .portrait
         
         // e). Get device properties with lock and try error hamdling
         do {
@@ -151,13 +151,13 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate{
         case UIDeviceOrientation.portraitUpsideDown:  // Device oriented vertically, home button on the top
             exifOrientation = .left
         case UIDeviceOrientation.landscapeLeft:       // Device oriented horizontally, home button on the right
-            exifOrientation = .upMirrored
+            exifOrientation = .up
         case UIDeviceOrientation.landscapeRight:      // Device oriented horizontally, home button on the left
             exifOrientation = .down
         case UIDeviceOrientation.portrait:            // Device oriented vertically, home button on the bottom
-            exifOrientation = .left
+            exifOrientation = .right
         default:
-            exifOrientation = .left
+            exifOrientation = .up
         }
         return exifOrientation
     }
@@ -176,7 +176,7 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate{
         case UIDeviceOrientation.portrait:            // Device oriented vertically, home button on the bottom
             imageOrientation = .right
         default:
-            imageOrientation = .right
+            imageOrientation = .up
         }
         return imageOrientation
     }

@@ -62,12 +62,15 @@ class ModelViewController: ViewController {
             return}
         
         let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
+        let uiImage = UIImage(ciImage: ciImage)
+//        let uiImage2 = UIImage(ciImage: ciImage.oriented(CGImagePropertyOrientation(getUiImageOrientationByUIDevice())))
+
         let context = CIContext(options: nil)
         guard let cgImage = context.createCGImage(ciImage, from: ciImage.extent) else {
             fatalError("Create cgImage fail")
         }
-        let uiImage = UIImage(cgImage: cgImage)
         let uiImage2 = UIImage(cgImage: cgImage, scale: 1.0, orientation: getUiImageOrientationByUIDevice())
+//        let uiImage2 = UIImage(cgImage: cgImage)
         // setup orientation
         let exifOrientation = exifOrientationFromDeviceOrientation2()
         let exifString = exifOrientationToString(orientation: exifOrientation)
@@ -218,3 +221,35 @@ class ModelViewController: ViewController {
 //    }
 //}
 
+
+//
+extension CGImagePropertyOrientation {
+    init(_ uiOrientation: UIImage.Orientation) {
+        switch uiOrientation {
+            case .up: self = .up
+            case .upMirrored: self = .upMirrored
+            case .down: self = .down
+            case .downMirrored: self = .downMirrored
+            case .left: self = .left
+            case .leftMirrored: self = .leftMirrored
+            case .right: self = .right
+            case .rightMirrored: self = .rightMirrored
+            default: self = .up
+        }
+    }
+}
+extension UIImage.Orientation {
+    init(_ cgOrientation: UIImage.Orientation) {
+        switch cgOrientation {
+            case .up: self = .up
+            case .upMirrored: self = .upMirrored
+            case .down: self = .down
+            case .downMirrored: self = .downMirrored
+            case .left: self = .left
+            case .leftMirrored: self = .leftMirrored
+            case .right: self = .right
+            case .rightMirrored: self = .rightMirrored
+            default: self = .up
+        }
+    }
+}
