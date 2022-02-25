@@ -157,7 +157,7 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate{
         case UIDeviceOrientation.portrait:            // Device oriented vertically, home button on the bottom
             exifOrientation = .right
         default:
-            exifOrientation = .up
+            exifOrientation = .right
         }
         return exifOrientation
     }
