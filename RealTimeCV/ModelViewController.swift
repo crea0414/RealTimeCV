@@ -20,6 +20,7 @@ class ModelViewController: ViewController {
     @IBOutlet weak var uiOrientationLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var uiImageOrientationLabel: UILabel!
+    @IBOutlet weak var imageView2: UIImageView!
     //    @IBOutlet weak var classLabel: UILabel!
 //    @IBOutlet weak var confidenceLabel: UILabel!
 //    @IBOutlet weak var DeviceOrientationLabel: UILabel!
@@ -66,6 +67,7 @@ class ModelViewController: ViewController {
             fatalError("Create cgImage fail")
         }
         let uiImage = UIImage(cgImage: cgImage)
+        let uiImage2 = UIImage(cgImage: cgImage, scale: 1.0, orientation: getUiImageOrientationByUIDevice())
         // setup orientation
         let exifOrientation = exifOrientationFromDeviceOrientation2()
         let exifString = exifOrientationToString(orientation: exifOrientation)
@@ -87,8 +89,9 @@ class ModelViewController: ViewController {
             self.AVCaptureOrientation.text = String("AV: \(avOrientation)")
             self.DeviceOrientationLabel.text = String("Device: \(deviceOrientationString)")
             self.ImageOrientationLabel.text = String("Exif: \(exifString)")
-            self.uiImageOrientationLabel.text = String("uiImage: \(uiImageOrientationString)")
+            self.uiImageOrientationLabel.text = String("LEFT:\(uiImageOrientationString) RIGHT:\(uiImageOrientationToString(orientation: getUiImageOrientationByUIDevice()))")
             self.imageView.image = uiImage
+            self.imageView2.image = uiImage2
         }
         // 3). new a vision image request handler
         let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: exifOrientation, options: [:])

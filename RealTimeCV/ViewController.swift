@@ -162,6 +162,25 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate{
         return exifOrientation
     }
     
+    
+    public func getUiImageOrientationByUIDevice() -> UIImage.Orientation {
+        let curDeviceOrientation = UIDevice.current.orientation
+        let imageOrientation: UIImage.Orientation
+        switch curDeviceOrientation {
+        case UIDeviceOrientation.portraitUpsideDown:  // Device oriented vertically, home button on the top
+            imageOrientation = .left
+        case UIDeviceOrientation.landscapeLeft:       // Device oriented horizontally, home button on the right
+            imageOrientation = .up
+        case UIDeviceOrientation.landscapeRight:      // Device oriented horizontally, home button on the left
+            imageOrientation = .down
+        case UIDeviceOrientation.portrait:            // Device oriented vertically, home button on the bottom
+            imageOrientation = .right
+        default:
+            imageOrientation = .right
+        }
+        return imageOrientation
+    }
+    
     func avOrientationString(orientation:AVCaptureVideoOrientation)->String{
         let result: String
         let resultWithRaw: String
