@@ -22,11 +22,7 @@ class ModelViewController: ViewController {
     @IBOutlet weak var uiImageOrientationLabel: UILabel!
     @IBOutlet weak var imageView2: UIImageView!
     @IBOutlet weak var calibratedOrientationLable: UILabel!
-    //    @IBOutlet weak var classLabel: UILabel!
-//    @IBOutlet weak var confidenceLabel: UILabel!
-//    @IBOutlet weak var DeviceOrientationLabel: UILabel!
-//    @IBOutlet weak var ImageOrientationLabel: UILabel!
-//    @IBOutlet weak var AVCaptureOrientation: UILabel!
+   
     var allRequests =  [VNImageBasedRequest]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +30,10 @@ class ModelViewController: ViewController {
         startCaptureSession()
         print("check suported orientation: \(self.supportedInterfaceOrientations)")
     }
-
+    @IBAction func cancelPressed(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func setupModel(){
         // 0).Tell Core ML to use the Neural Engine if available.
         let config = MLModelConfiguration()

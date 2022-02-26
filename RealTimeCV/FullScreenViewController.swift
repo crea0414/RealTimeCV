@@ -18,7 +18,9 @@ class FullScreenViewController: ViewController {
         super.viewDidLoad()
         setupModel()
         startCaptureSession()
-        
+    }
+    @IBAction func cancelPressed(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func setupModel(){
