@@ -22,16 +22,50 @@ class ModelViewController: ViewController {
     @IBOutlet weak var uiImageOrientationLabel: UILabel!
     @IBOutlet weak var imageView2: UIImageView!
     @IBOutlet weak var calibratedOrientationLable: UILabel!
-   
-    var allRequests =  [VNImageBasedRequest]()
+    @IBOutlet weak var visionView: UIImageView!
+    @IBOutlet weak var scaleButton: UIButton!
+    
+    var allRequests =  [VNCoreMLRequest]()
+    var imageCropAndScaleOption: VNImageCropAndScaleOption = .centerCrop
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupModel()
+        checkVNpreprocessing()
         startCaptureSession()
         print("check suported orientation: \(self.supportedInterfaceOrientations)")
     }
     @IBAction func cancelPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func scaleButtonPressed(_ sender: UIButton) {
+        switch imageCropAndScaleOption {
+              case .centerCrop:
+                imageCropAndScaleOption = .scaleFit
+              case .scaleFit:
+                imageCropAndScaleOption = .scaleFill
+              case .scaleFill:
+                imageCropAndScaleOption = .centerCrop
+              @unknown default:
+                fatalError("eek!")
+            }
+        DispatchQueue.main.async {
+            self.updateCropScaleButton()
+        }
+            
+    }
+    
+    func updateCropScaleButton() {
+        switch imageCropAndScaleOption {
+          case .centerCrop:
+            scaleButton.titleLabel?.text = "centerCrop"
+          case .scaleFit:
+            scaleButton.titleLabel?.text = "scaleFit"
+          case .scaleFill:
+            scaleButton.titleLabel?.text = "scaleFill"
+          @unknown default:
+            fatalError("??!")
+        }
     }
     
     func setupModel(){
@@ -51,8 +85,8 @@ class ModelViewController: ViewController {
             }
         }
         
-        singleRequest.imageCropAndScaleOption = .centerCrop
-        self.allRequests = [singleRequest]
+        singleRequest.imageCropAndScaleOption = imageCropAndScaleOption
+        self.allRequests.append(singleRequest)
     }
     
     override func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
@@ -101,6 +135,10 @@ class ModelViewController: ViewController {
         let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: exifOrientation, options: [:])
 //        let handler = VNImageRequestHandler(cmSampleBuffer: sampleBuffer, orientation: exifOrientation, options: [:])
         // 4). Perform request
+        for r in self.allRequests{
+            r.imageCropAndScaleOption = imageCropAndScaleOption
+        }
+        
         do {
             try handler.perform(self.allRequests)
         }catch {
@@ -207,6 +245,26 @@ class ModelViewController: ViewController {
         }
         resultWithRaw = String("\(result): \(orientation.rawValue)")
         return resultWithRaw
+    }
+    
+    func checkVNpreprocessing(){
+        // 0).Tell Core ML to use the Neural Engine if available.
+        let config = MLModelConfiguration()
+        config.computeUnits = .all
+        // 1). load core ml model
+        guard let model = try? VNCoreMLModel(for: Image2Image(configuration: config).model) else {fatalError("No model found when loading")}
+        // 2). make core ml request
+        let singleRequest = VNCoreMLRequest(model: model) { request, error in
+        guard let result = request.results as? [VNPixelBufferObservation] else {fatalError("No detection result!")}
+            if let pixelBuffer = result.first?.pixelBuffer {
+                DispatchQueue.main.sync {
+                    self.visionView.image = UIImage(ciImage: CIImage(cvPixelBuffer: pixelBuffer))
+                }
+            }
+        }
+        
+        singleRequest.imageCropAndScaleOption = imageCropAndScaleOption
+        self.allRequests.append(singleRequest)
     }
     
 }
