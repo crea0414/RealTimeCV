@@ -19,6 +19,12 @@
 		30037ED827C76E1400E453CE /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 30037ED727C76E1400E453CE /* MobileNet.mlmodel */; };
 		AD0EE08327C8D9FC00437B32 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0EE08227C8D9FC00437B32 /* StartViewController.swift */; };
 		AD0EE08527C937E800437B32 /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0EE08427C937E800437B32 /* FullScreenViewController.swift */; };
+		AD0EE08727CE039200437B32 /* Image2Image.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AD0EE08627CE039200437B32 /* Image2Image.mlmodel */; };
+		AD0EE08D27D0C45400437B32 /* Image2Image_DIY_outputImage.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AD0EE08C27D0C45400437B32 /* Image2Image_DIY_outputImage.mlmodel */; };
+		AD0EE09127D1EF1D00437B32 /* SegmentationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0EE09027D1EF1D00437B32 /* SegmentationVC.swift */; };
+		AD0EE09327D2181700437B32 /* DeepLab_ImageOut_scale.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AD0EE09227D2181700437B32 /* DeepLab_ImageOut_scale.mlmodel */; };
+		AD0EE09527D27B5000437B32 /* EfficientNetB0.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AD0EE09427D27B4F00437B32 /* EfficientNetB0.mlmodel */; };
+		AD4A802927D9A57D00C50CD1 /* ARSCNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A802827D9A57D00C50CD1 /* ARSCNViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +63,12 @@
 		30037ED727C76E1400E453CE /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 		AD0EE08227C8D9FC00437B32 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		AD0EE08427C937E800437B32 /* FullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
+		AD0EE08627CE039200437B32 /* Image2Image.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = Image2Image.mlmodel; path = ../../../../pyEnv/Image2Image.mlmodel; sourceTree = "<group>"; };
+		AD0EE08C27D0C45400437B32 /* Image2Image_DIY_outputImage.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Image2Image_DIY_outputImage.mlmodel; sourceTree = "<group>"; };
+		AD0EE09027D1EF1D00437B32 /* SegmentationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentationVC.swift; sourceTree = "<group>"; };
+		AD0EE09227D2181700437B32 /* DeepLab_ImageOut_scale.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DeepLab_ImageOut_scale.mlmodel; sourceTree = "<group>"; };
+		AD0EE09427D27B4F00437B32 /* EfficientNetB0.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = EfficientNetB0.mlmodel; sourceTree = "<group>"; };
+		AD4A802827D9A57D00C50CD1 /* ARSCNViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSCNViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,10 +125,16 @@
 				AD0EE08227C8D9FC00437B32 /* StartViewController.swift */,
 				30037ED227C76C3900E453CE /* ModelViewController.swift */,
 				AD0EE08427C937E800437B32 /* FullScreenViewController.swift */,
+				AD4A802827D9A57D00C50CD1 /* ARSCNViewController.swift */,
+				AD0EE09027D1EF1D00437B32 /* SegmentationVC.swift */,
 				30037E9F27C736B100E453CE /* Main.storyboard */,
 				30037EA227C736DC00E453CE /* Assets.xcassets */,
 				30037EA427C736DD00E453CE /* LaunchScreen.storyboard */,
 				30037EA727C736DD00E453CE /* Info.plist */,
+				AD0EE08627CE039200437B32 /* Image2Image.mlmodel */,
+				AD0EE09227D2181700437B32 /* DeepLab_ImageOut_scale.mlmodel */,
+				AD0EE08C27D0C45400437B32 /* Image2Image_DIY_outputImage.mlmodel */,
+				AD0EE09427D27B4F00437B32 /* EfficientNetB0.mlmodel */,
 				30037ED727C76E1400E453CE /* MobileNet.mlmodel */,
 			);
 			path = RealTimeCV;
@@ -270,10 +288,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD0EE09327D2181700437B32 /* DeepLab_ImageOut_scale.mlmodel in Sources */,
 				30037ED327C76C3900E453CE /* ModelViewController.swift in Sources */,
 				AD0EE08327C8D9FC00437B32 /* StartViewController.swift in Sources */,
 				30037ED827C76E1400E453CE /* MobileNet.mlmodel in Sources */,
+				AD0EE09527D27B5000437B32 /* EfficientNetB0.mlmodel in Sources */,
+				AD4A802927D9A57D00C50CD1 /* ARSCNViewController.swift in Sources */,
+				AD0EE08D27D0C45400437B32 /* Image2Image_DIY_outputImage.mlmodel in Sources */,
+				AD0EE08727CE039200437B32 /* Image2Image.mlmodel in Sources */,
 				30037E9E27C736B100E453CE /* ViewController.swift in Sources */,
+				AD0EE09127D1EF1D00437B32 /* SegmentationVC.swift in Sources */,
 				30037E9A27C736B100E453CE /* AppDelegate.swift in Sources */,
 				AD0EE08527C937E800437B32 /* FullScreenViewController.swift in Sources */,
 				30037E9C27C736B100E453CE /* SceneDelegate.swift in Sources */,

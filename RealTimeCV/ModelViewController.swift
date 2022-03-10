@@ -73,7 +73,7 @@ class ModelViewController: ViewController {
         let config = MLModelConfiguration()
         config.computeUnits = .all
         // 1). load core ml model
-        guard let model = try? VNCoreMLModel(for: MobileNet(configuration: config).model) else {fatalError("No model found when loading")}
+        guard let model = try? VNCoreMLModel(for: EfficientNetB0(configuration: config).model) else {fatalError("No model found when loading")}
         // 2). make core ml request
         let singleRequest = VNCoreMLRequest(model: model) { request, error in
         guard let result = request.results as? [VNClassificationObservation] else {fatalError("No detection result!")}
@@ -252,7 +252,7 @@ class ModelViewController: ViewController {
         let config = MLModelConfiguration()
         config.computeUnits = .all
         // 1). load core ml model
-        guard let model = try? VNCoreMLModel(for: Image2Image_DIY_outputImage(configuration: config).model) else {fatalError("No model found when loading")}
+    guard let model = try? VNCoreMLModel(for: DeepLab_ImageOut_scale(configuration: config).model) else {fatalError("No model found when loading")}
         // 2). make core ml request
         let singleRequest = VNCoreMLRequest(model: model) { request, error in
         guard let result = request.results as? [VNPixelBufferObservation] else {fatalError("No detection result!")}
