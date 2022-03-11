@@ -26,6 +26,7 @@
 		AD0EE09527D27B5000437B32 /* EfficientNetB0.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AD0EE09427D27B4F00437B32 /* EfficientNetB0.mlmodel */; };
 		AD4A802927D9A57D00C50CD1 /* ARSCNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A802827D9A57D00C50CD1 /* ARSCNViewController.swift */; };
 		ADBED1DF27D9D0B400BEB02D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = ADBED1DE27D9D0B400BEB02D /* art.scnassets */; };
+		ADBED22027DB3C6B00BEB02D /* RealityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBED21F27DB3C6B00BEB02D /* RealityViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		AD0EE09427D27B4F00437B32 /* EfficientNetB0.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = EfficientNetB0.mlmodel; sourceTree = "<group>"; };
 		AD4A802827D9A57D00C50CD1 /* ARSCNViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSCNViewController.swift; sourceTree = "<group>"; };
 		ADBED1DE27D9D0B400BEB02D /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		ADBED21F27DB3C6B00BEB02D /* RealityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				AD0EE08427C937E800437B32 /* FullScreenViewController.swift */,
 				AD0EE09027D1EF1D00437B32 /* SegmentationVC.swift */,
 				AD4A802827D9A57D00C50CD1 /* ARSCNViewController.swift */,
+				ADBED21F27DB3C6B00BEB02D /* RealityViewController.swift */,
 				30037E9F27C736B100E453CE /* Main.storyboard */,
 				ADBED1DE27D9D0B400BEB02D /* art.scnassets */,
 				30037EA227C736DC00E453CE /* Assets.xcassets */,
@@ -295,6 +298,7 @@
 				AD0EE09327D2181700437B32 /* DeepLab_ImageOut_scale.mlmodel in Sources */,
 				30037ED327C76C3900E453CE /* ModelViewController.swift in Sources */,
 				AD0EE08327C8D9FC00437B32 /* StartViewController.swift in Sources */,
+				ADBED22027DB3C6B00BEB02D /* RealityViewController.swift in Sources */,
 				30037ED827C76E1400E453CE /* MobileNet.mlmodel in Sources */,
 				AD0EE09527D27B5000437B32 /* EfficientNetB0.mlmodel in Sources */,
 				AD4A802927D9A57D00C50CD1 /* ARSCNViewController.swift in Sources */,
@@ -480,16 +484,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W5JVKSGZLY;
+				DEVELOPMENT_TEAM = 323FX88NSN;
 				INFOPLIST_FILE = RealTimeCV/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.crea.RealTimeCV;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crea.RealTimeCVaaa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -500,16 +506,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W5JVKSGZLY;
+				DEVELOPMENT_TEAM = 323FX88NSN;
 				INFOPLIST_FILE = RealTimeCV/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.crea.RealTimeCV;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crea.RealTimeCVaaa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

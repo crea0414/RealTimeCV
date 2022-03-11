@@ -4,11 +4,48 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Reality View Controller-->
+        <scene sceneID="i1H-q9-ma4">
+            <objects>
+                <viewController id="QCb-5o-oCs" customClass="RealityViewController" customModule="RealTimeCV" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Ng-nM-LdF">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2my-oh-NVQ">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </arView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWv-4H-xsc">
+                                <rect key="frame" x="191" y="836" width="46" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.backward" catalog="system"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="QCb-5o-oCs" eventType="touchUpInside" id="cQr-vn-ITb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="guO-cc-Ryq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nWv-4H-xsc" firstAttribute="centerX" secondItem="1Ng-nM-LdF" secondAttribute="centerX" id="DXJ-KR-uW2"/>
+                            <constraint firstItem="guO-cc-Ryq" firstAttribute="bottom" secondItem="nWv-4H-xsc" secondAttribute="bottom" constant="25" id="oZQ-eD-eqN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="realityView" destination="2my-oh-NVQ" id="7dw-Gn-kPf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5TC-7w-V3q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1971" y="-189"/>
+        </scene>
         <!--Start View Controller-->
         <scene sceneID="hL7-2t-0dS">
             <objects>
@@ -18,7 +55,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAG-Uw-Aqr">
-                                <rect key="frame" x="127.33333333333333" y="447.66666666666669" width="173.66666666666669" height="31"/>
+                                <rect key="frame" x="127.33333333333333" y="549" width="173.66666666666669" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="RealTime Classification"/>
                                 <connections>
@@ -26,7 +63,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkT-AL-VOa">
-                                <rect key="frame" x="153" y="528.66666666666663" width="122" height="31"/>
+                                <rect key="frame" x="153" y="661" width="122" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Engineer Mode"/>
                                 <connections>
@@ -34,15 +71,31 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dES-dX-Eut" userLabel="SingleImage">
-                                <rect key="frame" x="157" y="366.66666666666669" width="114" height="31"/>
+                                <rect key="frame" x="137.33333333333337" y="600" width="153.66666666666663" height="31"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Segmentation"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Image Classification"/>
                                 <connections>
                                     <segue destination="FMV-1D-g9f" kind="presentation" identifier="goToSegmentation" id="7LG-We-bGf"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DQt-9V-o8w">
+                                <rect key="frame" x="114" y="147.33333333333331" width="200" height="205.33333333333334"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="CnF-9a-OGf"/>
+                                    <constraint firstAttribute="height" constant="200" id="aGu-gf-jsE"/>
+                                </constraints>
+                                <imageReference key="image" image="books.vertical.fill" catalog="system" symbolScale="large"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGA-Px-BVW">
+                                <rect key="frame" x="171.66666666666666" y="437" width="84.999999999999972" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="RealityKit"/>
+                                <connections>
+                                    <segue destination="QCb-5o-oCs" kind="presentation" identifier="goToRealityVC" modalPresentationStyle="fullScreen" id="B14-mW-SwR"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULY-oI-7eX">
-                                <rect key="frame" x="112.00000000000001" y="282.66666666666669" width="204.33333333333337" height="31"/>
+                                <rect key="frame" x="112.00000000000001" y="498" width="204.33333333333337" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="AR + RealTimeClassification"/>
                                 <connections>
@@ -53,13 +106,19 @@
                         <viewLayoutGuide key="safeArea" id="oVn-uC-tG2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="DQt-9V-o8w" firstAttribute="top" secondItem="oVn-uC-tG2" secondAttribute="top" constant="106" id="1aj-wq-DMx"/>
+                            <constraint firstItem="DQt-9V-o8w" firstAttribute="centerX" secondItem="4ce-to-16C" secondAttribute="centerX" id="2Jp-h6-Rfq"/>
+                            <constraint firstItem="LkT-AL-VOa" firstAttribute="top" secondItem="dES-dX-Eut" secondAttribute="bottom" constant="30" id="5Jp-7v-qM0"/>
                             <constraint firstItem="LkT-AL-VOa" firstAttribute="centerX" secondItem="4ce-to-16C" secondAttribute="centerX" id="AbP-ui-NZ4"/>
-                            <constraint firstItem="KAG-Uw-Aqr" firstAttribute="centerY" secondItem="4ce-to-16C" secondAttribute="centerY" id="Ecu-wM-X3G"/>
-                            <constraint firstItem="ULY-oI-7eX" firstAttribute="centerX" secondItem="4ce-to-16C" secondAttribute="centerX" id="VDE-1a-Vcy"/>
-                            <constraint firstItem="KAG-Uw-Aqr" firstAttribute="centerX" secondItem="4ce-to-16C" secondAttribute="centerX" id="d79-YS-dNZ"/>
-                            <constraint firstItem="dES-dX-Eut" firstAttribute="top" secondItem="ULY-oI-7eX" secondAttribute="bottom" constant="52.670000000000002" id="oBs-tJ-rE1"/>
-                            <constraint firstItem="LkT-AL-VOa" firstAttribute="top" secondItem="KAG-Uw-Aqr" secondAttribute="bottom" constant="50" id="sNs-PY-W7X"/>
-                            <constraint firstItem="KAG-Uw-Aqr" firstAttribute="top" secondItem="dES-dX-Eut" secondAttribute="bottom" constant="50" id="suN-x6-Hu2"/>
+                            <constraint firstItem="tGA-Px-BVW" firstAttribute="centerX" secondItem="4ce-to-16C" secondAttribute="centerX" id="DJs-vT-5Fm"/>
+                            <constraint firstItem="oVn-uC-tG2" firstAttribute="bottom" secondItem="LkT-AL-VOa" secondAttribute="bottom" constant="200" id="E6f-oi-EVJ"/>
+                            <constraint firstItem="KAG-Uw-Aqr" firstAttribute="top" secondItem="ULY-oI-7eX" secondAttribute="bottom" constant="20" id="E7A-FM-ti4"/>
+                            <constraint firstItem="dES-dX-Eut" firstAttribute="centerX" secondItem="4ce-to-16C" secondAttribute="centerX" id="Hc8-Ew-pw2"/>
+                            <constraint firstItem="ULY-oI-7eX" firstAttribute="top" secondItem="tGA-Px-BVW" secondAttribute="bottom" constant="30" id="TrN-M5-p77"/>
+                            <constraint firstItem="KAG-Uw-Aqr" firstAttribute="centerX" secondItem="4ce-to-16C" secondAttribute="centerX" id="ZD6-7d-Ha1"/>
+                            <constraint firstItem="dES-dX-Eut" firstAttribute="top" secondItem="KAG-Uw-Aqr" secondAttribute="bottom" constant="20" id="mhZ-oT-dxX"/>
+                            <constraint firstItem="ULY-oI-7eX" firstAttribute="centerX" secondItem="4ce-to-16C" secondAttribute="centerX" id="oGJ-yO-GhB"/>
+                            <constraint firstItem="LkT-AL-VOa" firstAttribute="centerX" secondItem="4ce-to-16C" secondAttribute="centerX" id="tai-vR-C7f"/>
                             <constraint firstItem="dES-dX-Eut" firstAttribute="centerX" secondItem="4ce-to-16C" secondAttribute="centerX" id="xK5-3c-5UK"/>
                         </constraints>
                     </view>
@@ -131,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2tJ-i4-ToP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-922" y="544"/>
+            <point key="canvasLocation" x="-885" y="578"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vFT-wQ-1C5">
@@ -446,8 +505,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.turn.up.backward" catalog="system" width="128" height="106"/>
         <image name="arrowshape.turn.up.backward.2.fill" catalog="system" width="128" height="86"/>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
+        <image name="books.vertical.fill" catalog="system" width="128" height="109"/>
         <image name="person.crop.rectangle" catalog="system" width="128" height="93"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
