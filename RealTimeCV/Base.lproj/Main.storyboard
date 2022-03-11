@@ -41,13 +41,23 @@
                                     <segue destination="FMV-1D-g9f" kind="presentation" identifier="goToSegmentation" id="7LG-We-bGf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULY-oI-7eX">
+                                <rect key="frame" x="112.00000000000001" y="282.66666666666669" width="204.33333333333337" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="AR + RealTimeClassification"/>
+                                <connections>
+                                    <segue destination="Q2E-YQ-tCe" kind="presentation" modalPresentationStyle="fullScreen" id="5lX-t1-QYM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oVn-uC-tG2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="LkT-AL-VOa" firstAttribute="centerX" secondItem="4ce-to-16C" secondAttribute="centerX" id="AbP-ui-NZ4"/>
                             <constraint firstItem="KAG-Uw-Aqr" firstAttribute="centerY" secondItem="4ce-to-16C" secondAttribute="centerY" id="Ecu-wM-X3G"/>
+                            <constraint firstItem="ULY-oI-7eX" firstAttribute="centerX" secondItem="4ce-to-16C" secondAttribute="centerX" id="VDE-1a-Vcy"/>
                             <constraint firstItem="KAG-Uw-Aqr" firstAttribute="centerX" secondItem="4ce-to-16C" secondAttribute="centerX" id="d79-YS-dNZ"/>
+                            <constraint firstItem="dES-dX-Eut" firstAttribute="top" secondItem="ULY-oI-7eX" secondAttribute="bottom" constant="52.670000000000002" id="oBs-tJ-rE1"/>
                             <constraint firstItem="LkT-AL-VOa" firstAttribute="top" secondItem="KAG-Uw-Aqr" secondAttribute="bottom" constant="50" id="sNs-PY-W7X"/>
                             <constraint firstItem="KAG-Uw-Aqr" firstAttribute="top" secondItem="dES-dX-Eut" secondAttribute="bottom" constant="50" id="suN-x6-Hu2"/>
                             <constraint firstItem="dES-dX-Eut" firstAttribute="centerX" secondItem="4ce-to-16C" secondAttribute="centerX" id="xK5-3c-5UK"/>
@@ -56,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u7v-cL-r9F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-922" y="-201"/>
+            <point key="canvasLocation" x="-922.42990654205607" y="-201.51187904967605"/>
         </scene>
         <!--SegmentationVC-->
         <scene sceneID="T8R-vf-leL">
@@ -126,24 +136,62 @@
         <!--View Controller-->
         <scene sceneID="vFT-wQ-1C5">
             <objects>
-                <viewController id="Q2E-YQ-tCe" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="V5C-s0-twP">
+                <viewController id="Q2E-YQ-tCe" customClass="ARSCNViewController" customModule="RealTimeCV" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V5C-s0-twP" customClass="ARSCNView">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d0j-Mu-H2g">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                             </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvN-ah-T3B">
+                                <rect key="frame" x="189.33333333333334" y="815" width="49.666666666666657" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.left.fill" catalog="system" title=" "/>
+                                <connections>
+                                    <action selector="backPressed:" destination="Q2E-YQ-tCe" eventType="touchUpInside" id="WCp-yN-cxm"/>
+                                </connections>
+                            </button>
+                            <stackView alpha="0.5" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5Ug-ba-tVH" userLabel="ResultView">
+                                <rect key="frame" x="64" y="94" width="300" height="48.666666666666657"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4T-gD-l0A">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confidence" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcY-UU-pvF">
+                                        <rect key="frame" x="0.0" y="28.333333333333329" width="300" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="qhA-Pf-NxH"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yjb-8f-JZz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="5Ug-ba-tVH" firstAttribute="centerX" secondItem="V5C-s0-twP" secondAttribute="centerX" id="Z6F-yU-Jvy"/>
+                            <constraint firstItem="nvN-ah-T3B" firstAttribute="centerX" secondItem="V5C-s0-twP" secondAttribute="centerX" id="h4n-yu-HXx"/>
                             <constraint firstItem="d0j-Mu-H2g" firstAttribute="top" secondItem="V5C-s0-twP" secondAttribute="top" id="jYt-5X-2m4"/>
                             <constraint firstItem="d0j-Mu-H2g" firstAttribute="trailing" secondItem="yjb-8f-JZz" secondAttribute="trailing" id="kvp-b2-YHR"/>
+                            <constraint firstItem="5Ug-ba-tVH" firstAttribute="top" secondItem="yjb-8f-JZz" secondAttribute="top" constant="50" id="sTb-G8-G9c"/>
                             <constraint firstAttribute="bottom" secondItem="d0j-Mu-H2g" secondAttribute="bottom" id="uC7-9e-vrt"/>
                             <constraint firstItem="d0j-Mu-H2g" firstAttribute="leading" secondItem="yjb-8f-JZz" secondAttribute="leading" id="w46-z2-jPi"/>
+                            <constraint firstItem="yjb-8f-JZz" firstAttribute="bottom" secondItem="nvN-ah-T3B" secondAttribute="bottom" constant="46" id="zz6-pu-IYU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="classLabel" destination="H4T-gD-l0A" id="2Jn-pN-Fdo"/>
+                        <outlet property="confidenceLabel" destination="gcY-UU-pvF" id="AEl-cN-ZF4"/>
+                        <outlet property="sceneView" destination="d0j-Mu-H2g" id="6gy-2y-MMF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGz-cb-8hG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -318,9 +366,9 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0KS-tD-vI7" userLabel="BackButton">
-                                <rect key="frame" x="189" y="845.33333333333337" width="50" height="30.666666666666629"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.backward.2.fill" catalog="system" title=""/>
+                                <rect key="frame" x="203.33333333333334" y="857.66666666666663" width="21.666666666666657" height="18.333333333333371"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="" image="arrowshape.turn.up.left.fill" catalog="system"/>
                                 <connections>
                                     <action selector="cancelPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vWE-fy-7zP"/>
                                 </connections>
@@ -399,6 +447,7 @@
     </scenes>
     <resources>
         <image name="arrowshape.turn.up.backward.2.fill" catalog="system" width="128" height="86"/>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
         <image name="person.crop.rectangle" catalog="system" width="128" height="93"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
