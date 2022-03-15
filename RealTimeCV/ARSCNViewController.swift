@@ -85,9 +85,7 @@ extension ARSCNViewController{
             planeNode.position = sceneVector
             sceneView.scene.rootNode.addChildNode(planeNode)
         }
-      
     }
-    
 }
 
 

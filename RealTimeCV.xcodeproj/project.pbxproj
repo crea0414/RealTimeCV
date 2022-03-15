@@ -27,6 +27,8 @@
 		AD4A802927D9A57D00C50CD1 /* ARSCNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A802827D9A57D00C50CD1 /* ARSCNViewController.swift */; };
 		ADBED1DF27D9D0B400BEB02D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = ADBED1DE27D9D0B400BEB02D /* art.scnassets */; };
 		ADBED22027DB3C6B00BEB02D /* RealityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBED21F27DB3C6B00BEB02D /* RealityViewController.swift */; };
+		ADBED22927DF421100BEB02D /* MyScene.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = ADBED22827DF3E5200BEB02D /* MyScene.rcproject */; };
+		ADBED22C27DF43CD00BEB02D /* RemoteRobot2.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = ADBED22B27DF43C400BEB02D /* RemoteRobot2.rcproject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		AD4A802827D9A57D00C50CD1 /* ARSCNViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSCNViewController.swift; sourceTree = "<group>"; };
 		ADBED1DE27D9D0B400BEB02D /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		ADBED21F27DB3C6B00BEB02D /* RealityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityViewController.swift; sourceTree = "<group>"; };
+		ADBED22827DF3E5200BEB02D /* MyScene.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = MyScene.rcproject; sourceTree = "<group>"; };
+		ADBED22B27DF43C400BEB02D /* RemoteRobot2.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = RemoteRobot2.rcproject; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,8 @@
 				ADBED1DE27D9D0B400BEB02D /* art.scnassets */,
 				30037EA227C736DC00E453CE /* Assets.xcassets */,
 				30037EA427C736DD00E453CE /* LaunchScreen.storyboard */,
+				ADBED22827DF3E5200BEB02D /* MyScene.rcproject */,
+				ADBED22B27DF43C400BEB02D /* RemoteRobot2.rcproject */,
 				30037EA727C736DD00E453CE /* Info.plist */,
 				AD0EE08627CE039200437B32 /* Image2Image.mlmodel */,
 				AD0EE09227D2181700437B32 /* DeepLab_ImageOut_scale.mlmodel */,
@@ -299,6 +305,7 @@
 				30037ED327C76C3900E453CE /* ModelViewController.swift in Sources */,
 				AD0EE08327C8D9FC00437B32 /* StartViewController.swift in Sources */,
 				ADBED22027DB3C6B00BEB02D /* RealityViewController.swift in Sources */,
+				ADBED22C27DF43CD00BEB02D /* RemoteRobot2.rcproject in Sources */,
 				30037ED827C76E1400E453CE /* MobileNet.mlmodel in Sources */,
 				AD0EE09527D27B5000437B32 /* EfficientNetB0.mlmodel in Sources */,
 				AD4A802927D9A57D00C50CD1 /* ARSCNViewController.swift in Sources */,
@@ -309,6 +316,7 @@
 				30037E9A27C736B100E453CE /* AppDelegate.swift in Sources */,
 				AD0EE08527C937E800437B32 /* FullScreenViewController.swift in Sources */,
 				30037E9C27C736B100E453CE /* SceneDelegate.swift in Sources */,
+				ADBED22927DF421100BEB02D /* MyScene.rcproject in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
