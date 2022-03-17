@@ -19,19 +19,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2my-oh-NVQ">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="706"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="706" id="80N-53-JSr"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="nCE-m7-Uh6" appends="YES" id="Xe2-Uc-Rd1"/>
                                 </connections>
                             </arView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2vu-5C-mCi">
-                                <rect key="frame" x="0.0" y="701" width="428" height="225"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="225" id="LaY-Vq-Lj4"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="OQy-h7-h4e" userLabel="crossButton">
                                 <rect key="frame" x="28" y="714" width="191" height="191"/>
                                 <subviews>
@@ -77,6 +73,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" image="power.circle" catalog="system" title=" " cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="firePressed:" destination="QCb-5o-oCs" eventType="touchUpInside" id="TNs-s3-Tlo"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pw5-9F-bLB" userLabel="down">
                                         <rect key="frame" x="73" y="126" width="45" height="45"/>
@@ -186,19 +185,15 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="guO-cc-Ryq"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemFillColor"/>
                         <constraints>
-                            <constraint firstItem="2vu-5C-mCi" firstAttribute="leading" secondItem="2my-oh-NVQ" secondAttribute="leading" id="0yW-Kc-YZu"/>
                             <constraint firstItem="guO-cc-Ryq" firstAttribute="bottom" secondItem="MkQ-gL-hCa" secondAttribute="bottom" constant="40" id="1sl-wO-MX1"/>
                             <constraint firstItem="guO-cc-Ryq" firstAttribute="trailing" secondItem="MkQ-gL-hCa" secondAttribute="trailing" constant="27" id="69J-yO-A4i"/>
                             <constraint firstItem="2my-oh-NVQ" firstAttribute="top" secondItem="1Ng-nM-LdF" secondAttribute="top" id="7En-hm-8iB"/>
-                            <constraint firstItem="2vu-5C-mCi" firstAttribute="bottom" secondItem="2my-oh-NVQ" secondAttribute="bottom" id="HSv-8n-vPn"/>
-                            <constraint firstAttribute="bottom" secondItem="2vu-5C-mCi" secondAttribute="bottom" id="LU2-ZK-UmQ"/>
-                            <constraint firstItem="2vu-5C-mCi" firstAttribute="centerX" secondItem="1Ng-nM-LdF" secondAttribute="centerX" id="aV9-5i-dt7"/>
+                            <constraint firstAttribute="trailing" secondItem="2my-oh-NVQ" secondAttribute="trailing" id="9RZ-mO-qtl"/>
+                            <constraint firstItem="2my-oh-NVQ" firstAttribute="leading" secondItem="1Ng-nM-LdF" secondAttribute="leading" id="i97-HQ-iBY"/>
                             <constraint firstItem="OQy-h7-h4e" firstAttribute="leading" secondItem="guO-cc-Ryq" secondAttribute="leading" constant="28" id="jYj-qe-1kS"/>
-                            <constraint firstItem="2vu-5C-mCi" firstAttribute="leading" secondItem="1Ng-nM-LdF" secondAttribute="leading" id="nii-ZK-JTD"/>
                             <constraint firstItem="OQy-h7-h4e" firstAttribute="top" secondItem="guO-cc-Ryq" secondAttribute="top" constant="670" id="quk-ic-UI1"/>
-                            <constraint firstItem="2vu-5C-mCi" firstAttribute="trailing" secondItem="2my-oh-NVQ" secondAttribute="trailing" id="vpp-BB-OlU"/>
                         </constraints>
                     </view>
                     <connections>
@@ -691,6 +686,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

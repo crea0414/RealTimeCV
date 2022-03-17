@@ -803,15 +803,13 @@
                             {
                               "configurationBox" : {
                                 "configuration" : {
-                                  "collidingObjects" : [
-                                    "375030E4-3898-43A7-920E-4664508875C6"
-                                  ],
                                   "tags" : [
 
                                   ],
                                   "target" : [
                                     "46477DE5-8518-4D02-8ADF-D866F036BB8E",
-                                    "97E280AC-22A5-40B4-8DCE-DE4FEBB365DE"
+                                    "97E280AC-22A5-40B4-8DCE-DE4FEBB365DE",
+                                    "375030E4-3898-43A7-920E-4664508875C6"
                                   ]
                                 },
                                 "name" : "collision"
@@ -1567,6 +1565,87 @@
                     }
                   ],
                   "__version" : 3
+                },
+                {
+                  "__content" : [
+                    {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
+                      "actionGroups" : [
+                        {
+                          "__content" : [
+                            {
+                              "configurations" : [
+                                {
+                                  "__content" : [
+                                    {
+                                      "configurationBox" : {
+                                        "configuration" : {
+                                          "animationStyle" : "basic",
+                                          "duration" : 1,
+                                          "emphasisAnimationType" : "pop",
+                                          "iterations" : 1,
+                                          "target" : [
+                                            "375030E4-3898-43A7-920E-4664508875C6"
+                                          ]
+                                        },
+                                        "name" : {
+                                          "type" : "emphasis"
+                                        }
+                                      },
+                                      "identifier" : "2A520DB0-6CE6-46C7-9E7D-E1EA8125E268",
+                                      "isEnabled" : true
+                                    }
+                                  ],
+                                  "__version" : 1
+                                }
+                              ],
+                              "identifier" : "1806BACB-A6CC-4481-A096-0D393AD3DD63",
+                              "isEnabled" : true
+                            }
+                          ],
+                          "__version" : 1
+                        }
+                      ],
+                      "color" : [
+                        0.30980393290519714,
+                        0.56470590829849243,
+                        0.99215686321258545,
+                        1
+                      ],
+                      "identifier" : "B955AD8B-2BBA-462F-A015-E906029485C1",
+                      "isEnabled" : true,
+                      "isLooping" : false,
+                      "isModal" : false,
+                      "name" : "行為",
+                      "triggers" : [
+                        {
+                          "__content" : [
+                            {
+                              "configurationBox" : {
+                                "configuration" : {
+                                  "target" : [
+                                    "375030E4-3898-43A7-920E-4664508875C6"
+                                  ]
+                                },
+                                "name" : "tapTarget"
+                              },
+                              "identifier" : "66586C82-5309-4849-A6E5-8C2437FB0AB6",
+                              "isEnabled" : true
+                            }
+                          ],
+                          "__version" : 1
+                        }
+                      ]
+                    }
+                  ],
+                  "__version" : 3
                 }
               ],
               "gravity" : [
@@ -1927,7 +2006,7 @@
                           "bevelRadius",
                           {
                             "typeName" : "Double",
-                            "value" : 0.022842198333740238
+                            "value" : 0.022842198333740245
                           }
                         ],
                         [
@@ -1941,7 +2020,7 @@
                           "height",
                           {
                             "typeName" : "Double",
-                            "value" : 0.0019999999999999879
+                            "value" : 0.0019999999999999892
                           }
                         ],
                         [
@@ -2628,6 +2707,13 @@
                               }
                             }
                           }
+                        ],
+                        [
+                          "rigidBody-motionType",
+                          {
+                            "typeName" : "REMotionType",
+                            "value" : "dynamic"
+                          }
                         ]
                       ]
                     },
@@ -2666,7 +2752,7 @@
                           "height",
                           {
                             "typeName" : "Double",
-                            "value" : 0.0019999999999999879
+                            "value" : 0.0019999999999999892
                           }
                         ],
                         [
@@ -2909,9 +2995,9 @@
                   0.57354599237442017,
                   0.80323904752731323,
                   0,
-                  -0.0048699826002120972,
-                  0.36299437284469604,
-                  0.80103397369384766,
+                  -0.067765213549137115,
+                  0.5351182222366333,
+                  1.1152414083480835,
                   1
                 ],
                 "sceneTransform" : [
