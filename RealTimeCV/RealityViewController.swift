@@ -12,24 +12,37 @@ import UIKit
 import ARKit
 import RealityKit
 
-class RealityViewController: UIViewController {
+class RealityViewController: UIViewController, ARSessionDelegate {
     var sceneFlag = true
     var missileFlag = false
     var mainAnchorID: UUID?
     var box: RemoteRobot2.Box?
-//    lazy var missiel: Missile._Missile? = {
-//        do {
-//            return try Missile.load_Missile()
-//        }catch{
-//            fatalError("Loading missile fail!")
-//        }
-//    }()
+    var idx = 0
+    
+    @IBOutlet weak var classLabel: UILabel!
+    @IBOutlet weak var confidenceLabel: UILabel!
+    
+    //MARK: -  Setup Vision Request
+    lazy var classificatonRequest: VNCoreMLRequest = {
+        do {
+            /// step1 load mlmodel
+            let model = try VNCoreMLModel(for: EfficientNetB0.init(configuration: MLModelConfiguration()).model)
+            /// step2 create vn request and return
+            let request = VNCoreMLRequest.init(model: model, completionHandler: classificationHandler)
+            request.imageCropAndScaleOption = .centerCrop
+            return request
+        }catch{
+            fatalError("Initial classification request fail")
+        }
+    }()
+
     var missiel: Missile._Missile?
     @IBOutlet weak var realityView: ARView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        realityView.session.delegate = self
 //        realityView.debugOptions.insert(.showFeaturePoints)
             realityView.debugOptions.insert(.showStatistics)
         if #available(iOS 13.4, *) {
@@ -141,4 +154,36 @@ class RealityViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
+}
+
+
+extension RealityViewController{
+    
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+//        guard let capturedImage = frame.capturedImage else {return}
+        let capturedImage = frame.capturedImage
+        if idx < 1 {
+            DispatchQueue.main.async {
+                print("[image size id:\(self.idx)] Width: \(CVPixelBufferGetWidth(capturedImage)) Height: \(CVPixelBufferGetHeight(capturedImage))")
+                self.idx += 1
+            }
+        }
+            let exifOrientation = exifOrientationFromDeviceOrientation()
+            let visionHandler = VNImageRequestHandler.init(cvPixelBuffer: capturedImage, orientation: exifOrientation, options: [:])
+            do {
+                try visionHandler.perform([classificatonRequest])
+            }catch{
+                fatalError("Vision request error")
+            }
+    }
+    
+    func classificationHandler(_ request: VNRequest,  error: Error?){
+        guard let result = request.results as? [VNClassificationObservation] else {fatalError("Error in classification result!")}
+        if let firstResult = result.first{
+            DispatchQueue.main.async {
+                self.classLabel.text = firstResult.identifier
+                self.confidenceLabel.text = String(format: "Confidence: %.2f", firstResult.confidence*100) + "%"
+            }
+        }
+    }
 }
