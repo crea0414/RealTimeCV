@@ -26,6 +26,7 @@
 		AD0EE09527D27B5000437B32 /* EfficientNetB0.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AD0EE09427D27B4F00437B32 /* EfficientNetB0.mlmodel */; };
 		AD4A802927D9A57D00C50CD1 /* ARSCNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4A802827D9A57D00C50CD1 /* ARSCNViewController.swift */; };
 		AD6EC52327E1C1150076D8FA /* Missile.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = AD6EC52227E1C1150076D8FA /* Missile.rcproject */; };
+		AD6EC52527E324D40076D8FA /* CVRealityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6EC52427E324D40076D8FA /* CVRealityViewController.swift */; };
 		ADBED1DF27D9D0B400BEB02D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = ADBED1DE27D9D0B400BEB02D /* art.scnassets */; };
 		ADBED22027DB3C6B00BEB02D /* RealityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBED21F27DB3C6B00BEB02D /* RealityViewController.swift */; };
 		ADBED22C27DF43CD00BEB02D /* RemoteRobot2.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = ADBED22B27DF43C400BEB02D /* RemoteRobot2.rcproject */; };
@@ -74,6 +75,8 @@
 		AD0EE09427D27B4F00437B32 /* EfficientNetB0.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = EfficientNetB0.mlmodel; sourceTree = "<group>"; };
 		AD4A802827D9A57D00C50CD1 /* ARSCNViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSCNViewController.swift; sourceTree = "<group>"; };
 		AD6EC52227E1C1150076D8FA /* Missile.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Missile.rcproject; sourceTree = "<group>"; };
+		AD6EC52427E324D40076D8FA /* CVRealityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVRealityViewController.swift; sourceTree = "<group>"; };
+		AD6EC52627E32E8E0076D8FA /* TextLabel.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = TextLabel.rcproject; sourceTree = "<group>"; };
 		ADBED1DE27D9D0B400BEB02D /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		ADBED21F27DB3C6B00BEB02D /* RealityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityViewController.swift; sourceTree = "<group>"; };
 		ADBED22B27DF43C400BEB02D /* RemoteRobot2.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = RemoteRobot2.rcproject; sourceTree = "<group>"; };
@@ -136,10 +139,12 @@
 				AD0EE09027D1EF1D00437B32 /* SegmentationVC.swift */,
 				AD4A802827D9A57D00C50CD1 /* ARSCNViewController.swift */,
 				ADBED21F27DB3C6B00BEB02D /* RealityViewController.swift */,
+				AD6EC52427E324D40076D8FA /* CVRealityViewController.swift */,
 				30037E9F27C736B100E453CE /* Main.storyboard */,
 				ADBED1DE27D9D0B400BEB02D /* art.scnassets */,
 				30037EA227C736DC00E453CE /* Assets.xcassets */,
 				30037EA427C736DD00E453CE /* LaunchScreen.storyboard */,
+				AD6EC52627E32E8E0076D8FA /* TextLabel.rcproject */,
 				AD6EC52227E1C1150076D8FA /* Missile.rcproject */,
 				ADBED22B27DF43C400BEB02D /* RemoteRobot2.rcproject */,
 				30037EA727C736DD00E453CE /* Info.plist */,
@@ -302,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD0EE09327D2181700437B32 /* DeepLab_ImageOut_scale.mlmodel in Sources */,
+				AD6EC52527E324D40076D8FA /* CVRealityViewController.swift in Sources */,
 				AD6EC52327E1C1150076D8FA /* Missile.rcproject in Sources */,
 				30037ED327C76C3900E453CE /* ModelViewController.swift in Sources */,
 				AD0EE08327C8D9FC00437B32 /* StartViewController.swift in Sources */,
@@ -494,14 +500,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 323FX88NSN;
+				DEVELOPMENT_TEAM = W5JVKSGZLY;
 				INFOPLIST_FILE = RealTimeCV/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.crea.RealTimeCVaaa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crea.RealTimeCV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -516,14 +522,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 323FX88NSN;
+				DEVELOPMENT_TEAM = W5JVKSGZLY;
 				INFOPLIST_FILE = RealTimeCV/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.crea.RealTimeCVaaa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crea.RealTimeCV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

@@ -35,10 +35,10 @@ class ARSCNViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         sceneView.delegate = self
-        sceneView.showsStatistics = true
-        sceneView.debugOptions =  [ARSCNDebugOptions.showFeaturePoints,
+//        sceneView.showsStatistics = true
+//        sceneView.debugOptions =  [ARSCNDebugOptions.showFeaturePoints,
 //                                   ARSCNDebugOptions.showLightInfluences
-        ]
+//        ]
         
     }
     @IBAction func backPressed(_ sender: UIButton) {
@@ -72,7 +72,7 @@ extension ARSCNViewController{
                                       z: hitTestResult.worldTransform.columns.3.z)
             print("position: \(position)")
             DispatchQueue.global(qos: .background).async {
-                self.add3DObject(inPosition: position, onThePlane: true)
+                self.add3DObject2(inPosition: position, onThePlane: true)
             }
             
 
@@ -81,11 +81,23 @@ extension ARSCNViewController{
     
     func add3DObject(inPosition sceneVector: SCNVector3 = SCNVector3(x:0, y:0, z:-0.2), onThePlane: Bool = true){
         let airplane = SCNScene(named: "art.scnassets/ship.scn")
-        if let planeNode = airplane?.rootNode.childNode(withName: "shipMesh", recursively: true) {
+        if let planeNode = airplane?.rootNode.childNode(withName: "ship", recursively: true) {
             planeNode.position = sceneVector
             sceneView.scene.rootNode.addChildNode(planeNode)
         }
     }
+    
+    func add3DObject2(inPosition sceneVector: SCNVector3 = SCNVector3(x:0, y:0, z:-0.2), onThePlane: Bool = true){
+        let airplane = SCNScene(named: "art.scnassets/Richard_Feder_memorial_plate.scn")
+        if let planeNode = airplane?.rootNode.childNode(withName: "rabin_rabin_0", recursively: true) {
+            print("add")
+            planeNode.position = sceneVector
+            sceneView.scene.rootNode.addChildNode(planeNode)
+        }else{
+            print("No add")
+        }
+    }
+    
 }
 
 

@@ -44,15 +44,26 @@ class RealityViewController: UIViewController, ARSessionDelegate {
         super.viewDidLoad()
         realityView.session.delegate = self
 //        realityView.debugOptions.insert(.showFeaturePoints)
-            realityView.debugOptions.insert(.showStatistics)
+//            realityView.debugOptions.insert(.showStatistics)
         if #available(iOS 13.4, *) {
-            realityView.debugOptions.insert(.showSceneUnderstanding)
+//            realityView.debugOptions.insert(.showSceneUnderstanding)
         } else {
             // Fallback on earlier versions
         }
 //        realityView.debugOptions.insert(.showWorldOrigin)
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        realityView.session.run(<#T##ARConfiguration#>, options: <#T##ARSession.RunOptions#>)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        realityView.session.pause()
+    }
+    
     @IBAction func upPressed(_ sender: UIButton) {
         guard let box = self.box else {return}
         box.notifications.robotForward.post()
